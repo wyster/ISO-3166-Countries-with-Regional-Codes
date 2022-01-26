@@ -9,7 +9,7 @@ require 'json'
 require 'csv'
 require 'htmlentities'
 
-WIKIPEDIA_URI = "https://en.wikipedia.org/wiki/ISO_3166-1"
+WIKIPEDIA_URI = "https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes"
 UN_URI = "https://unstats.un.org/unsd/methodology/m49/overview"
 
 DECODE_ENTITIES = HTMLEntities.new.method(:decode)
@@ -29,7 +29,7 @@ doc = Nokogiri::HTML(URI.open(WIKIPEDIA_URI));
 puts "Extracting data from Wikipedia"
 
 doc.css("table.sortable tr").each do |row|
-  country_name, iso_alpha_2, iso_alpha_3, country_code, iso_3166_2 = row.css("td")
+  country_name, official_state_name, sovereignty, iso_alpha_2, iso_alpha_3, country_code, iso_3166_2 = row.css("td")
 
   next if country_name.blank?
 

@@ -101,3 +101,12 @@ Note, due to file encoding issues the script should only be run using Ruby 1.9 o
 * 20 April 2014 - `tag 3.0`
 * 13 June 2012 - `tag 2.0`
 * 18 May 2011 - `tag 1.0`
+
+### Update data
+```
+docker run \
+    -v $(pwd)/all:/app/all \
+    -v $(pwd)/slim-2:/app/slim-2 \
+    -v $(pwd)/slim-3:/app/slim-3 \
+    --rm -it $(docker build -q .)
+```
